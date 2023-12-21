@@ -1,11 +1,8 @@
-::: center
-**Source code for manuscript "Comparative Review of Novel Model-Assisted
-Designs for Phase I/II Clinical Trials"**
-:::
 
-::: center
+#Source code for manuscript "Comparative Review of Novel Model-Assisted Designs for Phase I/II Clinical Trials"
+
 Haolun Shi, Ruitao Lin, Xiaolei Lin
-:::
+
 
 # Introduction
 
