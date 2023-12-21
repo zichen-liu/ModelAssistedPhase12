@@ -1,0 +1,27 @@
+* BOIN-ET:
+toxicity cutoff: (0.16, 0.35) based on target rate 0.3, then 0.1*0.3 and 1.4*0.3
+efficacy cutoff: 0.38, based on 0.2 versus 0.6
+
+
+*STEIN:
+default setting of toxicity cutoff, i.e., phi=0.3, phi1=0.75*0.3, phi2=1.25*0.3
+efficacy cutoff: use 0.6 versus 0.2, leading to cutoff=0.3869
+
+# Joint 3+3:
+efficacy cutoff: 0.4
+toxicity: 0.25-0.35
+
+# TEPI:
+efficacy: low: 0.0-0.2; moderate: 0.2-0.4; high: 0.4-0.6; superb:0.6-1
+toxicity: low: 0.0-0.15; moderate: 0.15-0.30; high: 0.30-0.35; unacceptable: 0.35-1
+
+# PRINTE: (similar to uTPI?)
+toxicity: 0-0.25, 0.25-0.35, 0.35-1
+efficacy: 0-0.4, 0.4-1
+
+# BOIN12:
+try toxicity target: 0.30 or 0.35
+efficacy target: 0.20
+
+toxicity monitoring: Pr(pt>0.30)>0.95
+efficacy monitoring: Pr(pe<0.20)>0.90
