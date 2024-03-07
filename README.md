@@ -62,8 +62,7 @@ detailed description of each R code are given as follows.
 Note that the running time is long and we have stored all the
 intermediate results under the folders.
 
-Description of the folder structures are as follows. de are given as
-follows.
+Description of the folder structures are as follows. 
 
 -   NDOSE3/: The folder contains the intermediate results for simulation
     with the number of dose level $J=3$.
