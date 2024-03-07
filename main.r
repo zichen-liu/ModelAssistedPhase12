@@ -1,5 +1,5 @@
 
-setwd('/tmp/temp')
+
 
 PATH = getwd()
 
