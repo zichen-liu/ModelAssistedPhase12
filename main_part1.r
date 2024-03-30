@@ -1,13 +1,13 @@
-
-
+# The following code reproduce the intermediate results of the paper "Comparative Review of Novel Model-Assisted Designs for Phase I/II Clinical Trials" by Haolun Shi, Ruitao Lin, and Xiaolei Lin. 
+# The code needs to be run first in order to produce all the figures and tables in the manuscript
 
 PATH = getwd()
 
 
 # Run Number of dose = 5, Starting dose = 1
 NDOSE <<- 5
-dir.create(paste0(PATH,'/NDOSE5/'), showWarnings = FALSE)
-setwd(paste0(PATH,'/NDOSE5/'))
+dir.create(paste0(PATH,'/intermediate/NDOSE5/'), showWarnings = FALSE)
+setwd(paste0(PATH,'/intermediate/NDOSE5/'))
 
 for(i in 1:NDOSE){
 dir.create(paste0(i,'/'), showWarnings = FALSE)
@@ -32,8 +32,8 @@ source(paste0(PATH,'/extractavg2.r'))
 
 # Run Number of dose = 5, Starting dose = 2
 NDOSE <<- 5
-dir.create(paste0(PATH,'/NDOSE5_START2/'), showWarnings = FALSE)
-setwd(paste0(PATH,'/NDOSE5_START2/'))
+dir.create(paste0(PATH,'/intermediate/NDOSE5_START2/'), showWarnings = FALSE)
+setwd(paste0(PATH,'/intermediate/NDOSE5_START2/'))
 
 for(i in 1:NDOSE){
 dir.create(paste0(i,'/'), showWarnings = FALSE)
@@ -57,8 +57,8 @@ source(paste0(PATH,'/extractavg2.r'))
 
 # Run Number of dose = 3, Starting dose = 1
 NDOSE <<- 3
-dir.create(paste0(PATH,'/NDOSE3/'), showWarnings = FALSE)
-setwd(paste0(PATH,'/NDOSE3/'))
+dir.create(paste0(PATH,'/intermediate/NDOSE3/'), showWarnings = FALSE)
+setwd(paste0(PATH,'/intermediate/NDOSE3/'))
 
 for(i in 1:NDOSE){
 dir.create(paste0(i,'/'), showWarnings = FALSE)
@@ -85,8 +85,8 @@ source(paste0(PATH,'/extractavg.r'))
 
 # Run Number of dose = 10, Starting dose = 1
 NDOSE <<- 10
-dir.create(paste0(PATH,'/NDOSE10/'), showWarnings = FALSE)
-setwd(paste0(PATH,'/NDOSE10/'))
+dir.create(paste0(PATH,'/intermediate/NDOSE10/'), showWarnings = FALSE)
+setwd(paste0(PATH,'/intermediate/NDOSE10/'))
 
 for(i in 1:NDOSE){
 dir.create(paste0(i,'/'), showWarnings = FALSE)
@@ -120,12 +120,12 @@ ERANGE = c(0.1,0.2,0.3,0.4)
 
 TRANGE = c(0.2,0.3,0.4)
 
-dir.create(paste0(PATH,'/sensitivity/'), showWarnings = FALSE)
-setwd(paste0(PATH,'/sensitivity/'))
+dir.create(paste0(PATH,'/intermediate/sensitivity/'), showWarnings = FALSE)
+setwd(paste0(PATH,'/intermediate/sensitivity/'))
 for (ee in ERANGE){
 for (tt in TRANGE){
 	
-	setwd(paste0(PATH,'/sensitivity/'))
+	setwd(paste0(PATH,'/intermediate/sensitivity/'))
 	dir.create(paste0(ee,'_',tt,'/'), showWarnings = FALSE)
 	setwd(paste0(ee,'_',tt,'/'))
 	for(i in 1:NDOSE){
@@ -148,11 +148,3 @@ source(paste0(PATH,'/extractavg_sens.r'))
 
 
 
-
-## Create line plots of the six operating metrics for NDOSE = 5
-
-setwd(paste0(PATH,'/NDOSE5/'))
-source(paste0(PATH,'/Figure3-8.r'))
-
-source(paste0(PATH,'/Figure1.r'))
-source(paste0(PATH,'/Figure2.r'))

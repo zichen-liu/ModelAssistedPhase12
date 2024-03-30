@@ -1,5 +1,8 @@
 ##########TEPI
 
+setEPS()
+postscript(paste0("results/Figure1_1.eps"))
+
 par(xpd=FALSE)
 plot(c(0, 1), c(0, 1),type= "n", xlab = "Toxicity Probability", ylab = "Efficacy Probability",xaxt = "n",yaxt="n",cex.lab = 1.4)
 
@@ -32,9 +35,15 @@ legend(0.3,1.2, legend=c("E","S","D"), pch=rep(15,3), col=c("green","turquoise",
 
 text(0.02,1.1,"(a) TEPI",cex=1.6)
 
-
+dev.off()
 
 ########## PRINTE
+
+
+setEPS()
+postscript(paste0("results/Figure1_2.eps"))
+
+
 par(xpd=FALSE)
 
 plot(c(0, 1), c(0, 1),type= "n", xlab = "Toxicity Probability", ylab = "Efficacy Probability",xaxt = "n",yaxt="n",cex.lab=1.4)
@@ -76,3 +85,4 @@ legend(0.3,1.2, legend=c("E","S","D"), pch=rep(15,3), col=c("green","turquoise",
 text(0.05,1.1,"(b) PRINTE",cex=1.6)
 
 
+dev.off()

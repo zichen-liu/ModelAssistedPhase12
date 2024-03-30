@@ -1,5 +1,7 @@
-
 ############# BOINET
+
+setEPS()
+postscript(paste0("results/Figure2_1.eps"))
 
 par(xpd=FALSE)
 
@@ -26,10 +28,13 @@ text(0.85,0.7,"De-escalate",cex=1.4)
 par(xpd=TRUE)
 text(0.02,1.1,"(a) BOIN-ET",cex=1.6)
 
-
+dev.off()
 
 ############# STEIN
 
+
+setEPS()
+postscript(paste0("results/Figure2_2.eps"))
 
 par(xpd=FALSE)
 plot(c(0, 1), c(0, 1),type= "n", xlab = "Toxicity Probability", ylab = "Efficacy Probability",xaxt = "n",yaxt="n",cex.lab=1.4,cex.main=1.4)
@@ -57,3 +62,5 @@ text(0.85,0.7,"De-escalate",cex=1.4)
 
 par(xpd=TRUE)
 text(0.02,1.1,"(b) STEIN",cex=1.6)
+
+dev.off()

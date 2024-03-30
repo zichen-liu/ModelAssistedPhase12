@@ -26,11 +26,11 @@ ERANGE = c(0.1,0.2,0.3,0.4)
 TRANGE = c(0.2,0.3,0.4)
 
 
-setwd(paste0(PATH,'/sensitivity/'))
+setwd(paste0(PATH,'intermediate/sensitivity/'))
 for (ee in ERANGE){
 for (tt in TRANGE){
 	
-	setwd(paste0(PATH,'/sensitivity/'))
+	setwd(paste0(PATH,'intermediate/sensitivity/'))
 	
 	setwd(paste0(ee,'_',tt,'/'))
 	
@@ -76,7 +76,7 @@ tblsens = NULL
 for (ee in ERANGE){
 for (tt in TRANGE){
 	
-	setwd(paste0(PATH,'/sensitivity/'))
+	setwd(paste0(PATH,'intermediate/sensitivity/'))
 	
 	setwd(paste0(ee,'_',tt,'/'))
 	
@@ -88,5 +88,5 @@ for (tt in TRANGE){
 }
 }
 
-setwd(paste0(PATH,'/sensitivity/'))
+setwd(paste0(PATH,'intermediate/sensitivity/'))
 fwrite(tblsens,'simres_sensitivity.csv')

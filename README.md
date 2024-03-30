@@ -9,18 +9,39 @@ Haolun Shi, Ruitao Lin, Xiaolei Lin
 The code has been written using R-3.6.3 (platform: x86_64-w64-mingw32
 x64 (64-bit) with package versions data.table_1.14.2 and Iso_0.0-18.1.
 
-To reproduce the tables in the manuscript, run the main.r. The script
+To reproduce the tables in the manuscript, run the main_part1.r then the main_part2.r. The script
 will produce all the intermediate results (in csv format) and Figures. A
 detailed description of each R code are given as follows.
 
--   main.r: The script will produce all the intermediate results (in csv
+-   main_part1.r: The script will produce all the intermediate results (in csv
     format) and Figures.
+
+-   main_part2.r: The script will produce all the numerical tables (in csv
+    format) and Figures based on the intermediate results. 
 
 -   Figure1.r: The script will reproduce Figure 1 in the manuscript.
 
 -   Figure2.r: The script will reproduce Figure 2 in the manuscript.
 
 -   Figure3-8.r: The script will reproduce Figures 3-8 in the
+    manuscript.
+
+-   FigureS1-S10.r: The script will reproduce Figures in the
+    supplementary material.
+	
+-   Table3.r: The script will reproduce Table 3 in the
+    manuscript.
+
+-   Table4.r: The script will reproduce Table 4 in the
+    manuscript.
+	
+-   Table5.r: The script will reproduce Table 5 in the
+    manuscript.
+	
+-   Table6.r: The script will reproduce Table 6 in the
+    manuscript.	
+
+-   Table7.r: The script will reproduce Table 7 in the
     manuscript.
 
 -   boin12.R: The script for generating operating characteristics of the
@@ -60,24 +81,31 @@ detailed description of each R code are given as follows.
     csv files named "simres_sensitivity.csv" for sensitivity analyses.
 
 Note that the running time is long and we have stored all the
-intermediate results under the folders.
+intermediate results under the folder "intermediate" .
+Tables 1 and 2 are text-based tables and contain no numbers, thus are
+omitted.
+
 
 Description of the folder structures are as follows. 
 
--   NDOSE3/: The folder contains the intermediate results for simulation
+-   results/: The folder contains all the numerical tables and figures 
+
+-   intermediate/: The folder contains all the intermediate results for simulation    
+
+-   intermediate/NDOSE3/: The folder contains the intermediate results for simulation
     with the number of dose level $J=3$.
 
--   NDOSE5/: The folder contains the intermediate results for simulation
+-   intermediate/NDOSE5/: The folder contains the intermediate results for simulation
     with the number of dose level $J=5$.
 
--   NDOSE5_START2/: The folder contains the intermediate results for
+-   intermediate/NDOSE5_START2/: The folder contains the intermediate results for
     simulation with the number of dose level $J=5$ and starting dose
     level 2.
 
--   NDOSE10/: The folder contains the intermediate results for
+-   intermediate/NDOSE10/: The folder contains the intermediate results for
     simulation with the number of dose level $J=10$.
 
--   sensitivity/: The folder contains the intermediate results for
+-   intermediate/sensitivity/: The folder contains the intermediate results for
     simulation on sensitivity analyses. The subfolder within corresponds
     to the simulation with a certain target efficacy rate $\zeta_E$ and
     target toxicity rate $\phi_T$ (subfolder name is simply the
@@ -88,23 +116,6 @@ correspond to the scenario where the OBD is fixed at the index. For
 example, the subfolder NDOSE3/2 corresponds to the simulation scenario
 where the OBD is fixed at the second dose level in the simulation where
 there are $J=3$ dose levels.
-
-To reproduce the tables in the manuscript, we use Excel to create the
-formatted tables and use Excel2Latex for converting the tables into
-latex. We list them as follows.
-
--   NDOSE5/Table3.xlsm
-
--   NDOSE5_START2/Table4.xlsm
-
--   NDOSE3/Table5.xlsm
-
--   NDOSE10/Table6.xlsm
-
--   sensitivity/Table7.xlsm
-
-Tables 1 and 2 are text-based tables and contain no numbers, thus are
-omitted.
 
 For questions, comments or remarks about the code, please contact the
 first author of the paper.
