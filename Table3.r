@@ -3,7 +3,7 @@ library(data.table)
 library(tidyverse)
 
 
-tbl = fread(paste0(PATH,'\\intermediate\\NDOSE5\\simres.csv'))
+tbl = fread(paste0(PATH,'\\intermediate\\NDOSE5_START2\\simres.csv'))
 
 tbl$Design = tbl$V2
 tbl$Design <- ifelse(tbl$Design == "utpi", "uTPI", tbl$Design)
@@ -83,4 +83,4 @@ p2 = p2 %>% rename("OBD Sel%" = "bd.sel","FD Sel%"="od.sel",	"OBD Pts%"="bd.pts"
 p2 = p2 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor Pts%","OV Pts%","OV Sel%",CompRank)
 
 
-fwrite((rbind(p1,p2)),paste0("results/Table3.csv"))
+fwrite((rbind(p2,p1)),paste0("results/Table3.csv"))

@@ -28,6 +28,9 @@ detailed description of each R code are given as follows.
 
 -   FigureS1-S10.r: The script will reproduce Figures in the
     supplementary material.
+
+-   Table2.r: The script will reproduce Table 2 in the
+    manuscript.
 	
 -   Table3.r: The script will reproduce Table 3 in the
     manuscript.
@@ -40,9 +43,6 @@ detailed description of each R code are given as follows.
 	
 -   Table6.r: The script will reproduce Table 6 in the
     manuscript.	
-
--   Table7.r: The script will reproduce Table 7 in the
-    manuscript.
 
 -   boin12.R: The script for generating operating characteristics of the
     BOIN12 design.

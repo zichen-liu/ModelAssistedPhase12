@@ -3,7 +3,7 @@ library(data.table)
 library(tidyverse)
 
 
-tbl = fread(paste0(PATH,'\\intermediate\\NDOSE5_START2\\simres.csv'))
+tbl = fread(paste0(PATH,'\\intermediate\\NDOSE3\\simres.csv'))
 
 tbl$Design = tbl$V2
 tbl$Design <- ifelse(tbl$Design == "utpi", "uTPI", tbl$Design)
@@ -13,12 +13,12 @@ tbl$Design <- ifelse(tbl$Design == "stein", "STEIN", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "printe", "PRINTE", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "tepi", "TEPI", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "boin12", "BOIN12", tbl$Design)
-tbl$Design <- ifelse(tbl$Design == "efftox", "EffTox", tbl$Design)
+
 		   
 
 p1 = tbl %>% filter(rtype ==1 & utype ==1)
 p1=as.data.table(p1)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "EffTox")
+preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12")
 p1 = p1[preferred.order, on="Design"]
 p1 = p1 %>% arrange(ncohort)
 
@@ -53,7 +53,7 @@ p1 = p1 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor P
 p2 = tbl %>% filter(rtype ==1 & utype ==2)
 
 p2=as.data.table(p2)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "EffTox")
+preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12")
 p2 = p2[preferred.order, on="Design"]
 p2 = p2 %>% arrange(ncohort)
 
@@ -83,4 +83,4 @@ p2 = p2 %>% rename("OBD Sel%" = "bd.sel","FD Sel%"="od.sel",	"OBD Pts%"="bd.pts"
 p2 = p2 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor Pts%","OV Pts%","OV Sel%",CompRank)
 
 
-fwrite((rbind(p1,p2)),paste0("results/Table4.csv"))
+fwrite((rbind(p2,p1)),paste0("results/Table4.csv"))

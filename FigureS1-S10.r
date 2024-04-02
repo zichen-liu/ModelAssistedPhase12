@@ -1,6 +1,6 @@
 library(data.table)
 
-PATH=getwd()
+#PATH=getwd()
 
 
 

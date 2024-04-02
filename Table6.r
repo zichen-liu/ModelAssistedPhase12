@@ -3,7 +3,8 @@ library(data.table)
 library(tidyverse)
 
 
-tbl = fread(paste0(PATH,'\\intermediate\\NDOSE10\\simres.csv'))
+
+tbl = fread(paste0(PATH,'\\intermediate\\sensitivity\\simres_sensitivity.csv'))
 
 tbl$Design = tbl$V2
 tbl$Design <- ifelse(tbl$Design == "utpi", "uTPI", tbl$Design)
@@ -16,9 +17,17 @@ tbl$Design <- ifelse(tbl$Design == "boin12", "BOIN12", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "efftox", "EffTox", tbl$Design)
 		   
 
-p1 = tbl %>% filter(rtype ==1 & utype ==1)
+p1 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.3 & efftarget == 0.1)
+p2 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.3 & efftarget == 0.2)
+p3 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.3 & efftarget == 0.3)
+p4 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.3 & efftarget == 0.4)
+p5 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.2 & efftarget == 0.2)
+p6 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.4 & efftarget == 0.2)
+
+tableformat<-function(p1,toxtarget,efftarget){
+
 p1=as.data.table(p1)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "EffTox")
+preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12")
 p1 = p1[preferred.order, on="Design"]
 p1 = p1 %>% arrange(ncohort)
 
@@ -45,42 +54,23 @@ p1$ov.sel = format(round(p1$ov.sel, 2), nsmall = 2)
 
 p1$'Sample Size' = p1$ncohort * 3
 p1 = p1 %>% rename("OBD Sel%" = "bd.sel","FD Sel%"="od.sel",	"OBD Pts%"="bd.pts",	"Poor Pts%"="poorall",	"OV Pts%"="overdose",	"OV Sel%"="ov.sel")
-p1 = p1 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor Pts%","OV Pts%","OV Sel%",CompRank)
+p1$'phi_T' = p1$toxtarget
+p1$'zeta_E' = p1$efftarget
+
+p1 = p1 %>% select('phi_T','zeta_E',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor Pts%","OV Pts%","OV Sel%",CompRank)
+
+return(p1)
+}
 
 
+output = rbind(
+tableformat(p1,0.3,0.1),
+tableformat(p2,0.3,0.2),
+tableformat(p3,0.3,0.3),
+tableformat(p4,0.3,0.4),
+tableformat(p5,0.2,0.2),
+tableformat(p6,0.4,0.2)
+)
 
+fwrite(output,paste0("results/Table6.csv"))
 
-p2 = tbl %>% filter(rtype ==1 & utype ==2)
-
-p2=as.data.table(p2)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "EffTox")
-p2 = p2[preferred.order, on="Design"]
-p2 = p2 %>% arrange(ncohort)
-
-
-p2$temp = paste0(p2$ncohort,p2$Design)
-p2[,bdselr := rank(bd.sel * (-1)),by=ncohort]
-p2[,odselr := rank(od.sel * (-1)),by=ncohort]
-p2[,bdptsr := rank(bd.pts * (-1)),by=ncohort]
-p2[,poorallr := rank(poorall ),by=ncohort]
-p2[,overdoser := rank(overdose),by=ncohort]
-p2[,ovselr := rank(ov.sel),by=ncohort]
-
-p2[,avgrank := (bdselr+odselr+bdptsr+poorallr+overdoser+ovselr)/6]
-p2[,CompRank := rank(bdselr+odselr+bdptsr+poorallr+overdoser+ovselr, ties.method ="min"),by=ncohort]
-p2$avgrank = format(round(p2$avgrank, 2), nsmall = 2)
-p2$CompRank = paste0(p2$CompRank,"(",p2$avgrank,")")
-
-p2$bd.sel = format(round(p2$bd.sel, 2), nsmall = 2)
-p2$od.sel = format(round(p2$od.sel, 2), nsmall = 2)
-p2$bd.pts = format(round(p2$bd.pts, 2), nsmall = 2)
-p2$poorall = format(round(p2$poorall, 2), nsmall = 2)
-p2$overdose = format(round(p2$overdose, 2), nsmall = 2)
-p2$ov.sel = format(round(p2$ov.sel, 2), nsmall = 2)
-
-p2$'Sample Size' = p2$ncohort * 3
-p2 = p2 %>% rename("OBD Sel%" = "bd.sel","FD Sel%"="od.sel",	"OBD Pts%"="bd.pts",	"Poor Pts%"="poorall",	"OV Pts%"="overdose",	"OV Sel%"="ov.sel")
-p2 = p2 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor Pts%","OV Pts%","OV Sel%",CompRank)
-
-
-fwrite((rbind(p1,p2)),paste0("results/Table6.csv"))

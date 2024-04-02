@@ -4,15 +4,17 @@
 
 PATH = getwd()
 setwd(paste0(PATH,'/intermediate/NDOSE5/'))
+setwd("../../")
 source(paste0(PATH,'/Figure1.r'))
 source(paste0(PATH,'/Figure2.r'))
 source(paste0(PATH,'/Figure3-8.r'))
 
 source(paste0(PATH,'/FigureS1-S10.r'))
+setwd("../../..")
 
+source(paste0(PATH,'/Table2.r'))
 source(paste0(PATH,'/Table3.r'))
 source(paste0(PATH,'/Table4.r'))
 source(paste0(PATH,'/Table5.r'))
 source(paste0(PATH,'/Table6.r'))
-source(paste0(PATH,'/Table7.r'))
 
