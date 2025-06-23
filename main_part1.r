@@ -18,6 +18,7 @@ TARGET.E <<- 0.2
 TARGET.T <<- 0.3 
 SSIZERANGE <<- seq(8,30,by=2)
 source(paste0(PATH,'/boin12.R'))
+source(paste0(PATH,'/modified_boin12.R'))
 source(paste0(PATH,'/BOINET.R'))
 source(paste0(PATH,'/Ji3.R'))
 source(paste0(PATH,'/PITE.R'))
@@ -44,6 +45,7 @@ TARGET.E <<- 0.2
 TARGET.T <<- 0.3 
 SSIZERANGE <<- seq(8,30,by=2)
 source(paste0(PATH,'/boin12.R'))
+source(paste0(PATH,'/modified_boin12.R'))
 source(paste0(PATH,'/BOINET.R'))
 source(paste0(PATH,'/Ji3.R'))
 source(paste0(PATH,'/PITE.R'))
@@ -69,6 +71,7 @@ TARGET.E <<- 0.2
 TARGET.T <<- 0.3 
 SSIZERANGE <<- c(6,12)
 source(paste0(PATH,'/boin12.R'))
+source(paste0(PATH,'/modified_boin12.R'))
 source(paste0(PATH,'/BOINET.R'))
 source(paste0(PATH,'/Ji3.R'))
 source(paste0(PATH,'/PITE.R'))
@@ -98,6 +101,7 @@ TARGET.T <<- 0.3
 SSIZERANGE <<- c(18,36)
 
 source(paste0(PATH,'/boin12.R'))
+source(paste0(PATH,'/modified_boin12.R'))
 source(paste0(PATH,'/BOINET.R'))
 source(paste0(PATH,'/Ji3.R'))
 source(paste0(PATH,'/PITE.R'))
@@ -135,6 +139,7 @@ for (tt in TRANGE){
 	TARGET.E <<- ee
 	TARGET.T <<- tt 
 	source(paste0(PATH,'/boin12.R'))
+	source(paste0(PATH,'/modified_boin12.R'))
 	source(paste0(PATH,'/BOINET.R'))
 	source(paste0(PATH,'/Ji3.R'))
 	source(paste0(PATH,'/PITE.R'))
