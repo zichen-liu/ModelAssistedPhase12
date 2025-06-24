@@ -5,8 +5,8 @@
 PATH = getwd()
 setwd(paste0(PATH,'/intermediate/NDOSE5/'))
 setwd("../../")
-source(paste0(PATH,'/Figure1.r'))
-source(paste0(PATH,'/Figure2.r'))
+# source(paste0(PATH,'/Figure1.r'))
+# source(paste0(PATH,'/Figure2.r'))
 source(paste0(PATH,'/Figure3-8.r'))
 
 source(paste0(PATH,'/FigureS1-S10.r'))

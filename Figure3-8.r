@@ -23,14 +23,15 @@ utpix = utpix / 5
 return(cbind(utpix,utpi$design))
 }
 
-utpi= getvalue("\\utpi_random.csv")
-boin=getvalue("\\BOINET_random.csv")
-efft=getvalue("\\efftox_random.csv")
-tepi=getvalue("\\tepi_random.csv")
-boin12 = getvalue("\\boin12_random.csv")
-ji3 = getvalue("\\ji3_random.csv")
-printe = getvalue("\\printe_random.csv")
-stein = getvalue("\\stein_random.csv")
+utpi= getvalue("/utpi_random.csv")
+boin=getvalue("/BOINET_random.csv")
+efft=getvalue("/efftox_random.csv")
+tepi=getvalue("/tepi_random.csv")
+boin12 = getvalue("/boin12_random.csv")
+modified_boin12 = getvalue("/modified_boin12_random.csv")
+ji3 = getvalue("/ji3_random.csv")
+printe = getvalue("/printe_random.csv")
+stein = getvalue("/stein_random.csv")
 
 tblall = NULL
 tblall = rbind(tblall, utpi)
@@ -38,6 +39,7 @@ tblall = rbind(tblall, boin)
 tblall = rbind(tblall, efft)
 tblall = rbind(tblall, tepi)
 tblall = rbind(tblall, boin12)
+tblall = rbind(tblall, modified_boin12)
 tblall = rbind(tblall, ji3)
 tblall = rbind(tblall, printe)
 tblall = rbind(tblall, stein)
@@ -55,6 +57,7 @@ boin= boin[index,]
 efft= efft[which(efft$rtype==RTYPE & efft$utype==UTYPE),]
 tepi= tepi[index,]
 boin12= boin12[index,]
+modified_boin12= modified_boin12[index,]
 ji3= ji3[index,]
 printe= printe[index,]
 stein= stein[index,]
@@ -85,9 +88,9 @@ efft$ov.sel =predict(sm,efft$ncohort)$y
 
 
 
-ltys=seq(1,8)
-liness=seq(1,8)
-liness=rep(1,8)
+ltys=seq(1,9)
+liness=seq(1,9)
+liness=rep(1,9)
 
 
 
@@ -96,11 +99,11 @@ liness=rep(1,8)
 ## Figure 3
 cs = c("Black","Red","Green","Blue",5,6,"Pink","Orange","Purple")
 
-dname=c("uTPI", "PRINTE","BOIN-ET","TEPI","Joint3+3","BOIN12","STEIN","EffTox")
+dname=c("uTPI", "PRINTE","BOIN-ET","TEPI","Joint3+3","BOIN12","STEIN","EffTox", "M-BOIN12")
 
-setEPS()
-postscript(paste0(PATH,"/results/Figure3_",UTYPE,".eps"))
-
+# setEPS()
+# postscript(paste0(PATH,"/results/Figure3_",UTYPE,".eps"))
+png(paste0(PATH,"/results/Figure3_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$bd.sel,
 printe$bd.sel,
@@ -108,6 +111,7 @@ boin$bd.sel,
 tepi$bd.sel,
 efft$bd.sel,
 boin12$bd.sel,
+modified_boin12$bd.sel,
 stein$bd.sel,
 ji3$bd.sel)
 
@@ -138,9 +142,11 @@ points(stein$ncohort*3,stein$bd.sel,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$bd.sel,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$bd.sel,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
+lines(modified_boin12$ncohort*3,modified_boin12$bd.sel,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$bd.sel,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
-legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,8),pch=ltys,bty="n",ncol=4)
+legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,9),pch=ltys,bty="n",ncol=4)
 
 
 dev.off()
@@ -160,6 +166,7 @@ boin$od.sel,
 tepi$od.sel,
 efft$od.sel,
 boin12$od.sel,
+modified_boin12$od.sel,
 stein$od.sel,
 ji3$od.sel)
 
@@ -190,9 +197,12 @@ points(stein$ncohort*3,stein$od.sel,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$od.sel,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$od.sel,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
+lines(modified_boin12$ncohort*3,modified_boin12$od.sel,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$od.sel,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
-legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,8),pch=ltys,bty="n",ncol=4)
+
+legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,9),pch=ltys,bty="n",ncol=4)
 
 
 dev.off()
@@ -213,6 +223,7 @@ boin$bd.pts,
 tepi$bd.pts,
 efft$bd.pts,
 boin12$bd.pts,
+modified_boin12$bd.pts,
 stein$bd.pts,
 ji3$bd.pts)
 
@@ -243,9 +254,11 @@ points(stein$ncohort*3,stein$bd.pts,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$bd.pts,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$bd.pts,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
+lines(modified_boin12$ncohort*3,modified_boin12$bd.pts,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$bd.pts,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
-legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,8),pch=ltys,bty="n",ncol=4)
+legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,9),pch=ltys,bty="n",ncol=4)
 
 
 dev.off()
