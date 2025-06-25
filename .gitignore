@@ -3,3 +3,6 @@
 *.csv
 *.eps
 results/.Rapp.history
+*.csv
+/intermediate
+/results

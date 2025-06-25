@@ -156,8 +156,9 @@ dev.off()
 
 
 ## Figure 4
-setEPS()
-postscript(paste0(PATH,"/results/Figure4_",UTYPE,".eps"))
+# setEPS()
+# postscript(paste0(PATH,"/results/Figure4_",UTYPE,".eps"))
+png(paste0(PATH,"/results/Figure4_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 
 xx = c(utpi$od.sel,
@@ -213,9 +214,9 @@ dev.off()
 
 
 ## Figure 5
-setEPS()
-postscript(paste0(PATH,"/results/Figure5_",UTYPE,".eps"))
-
+# setEPS()
+# postscript(paste0(PATH,"/results/Figure5_",UTYPE,".eps"))
+png(paste0(PATH,"/results/Figure5_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$bd.pts,
 printe$bd.pts,
@@ -267,9 +268,9 @@ dev.off()
 
 
 ## Figure 6
-setEPS()
-postscript(paste0(PATH,"/results/Figure6_",UTYPE,".eps"))
-
+# setEPS()
+# postscript(paste0(PATH,"/results/Figure6_",UTYPE,".eps"))
+png(paste0(PATH,"/results/Figure6_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$poorall,
 printe$poorall,
@@ -277,6 +278,7 @@ boin$poorall,
 tepi$poorall,
 efft$poorall,
 boin12$poorall,
+modified_boin12$poorall,
 stein$poorall,
 ji3$poorall)
 
@@ -307,9 +309,11 @@ points(stein$ncohort*3,stein$poorall,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$poorall,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$poorall,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
+lines(modified_boin12$ncohort*3,modified_boin12$poorall,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$poorall,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
-legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,8),pch=ltys,bty="n",ncol=4)
+legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,9),pch=ltys,bty="n",ncol=4)
 
 
 dev.off()
@@ -319,9 +323,9 @@ dev.off()
 
 
 ## Figure 7
-setEPS()
-postscript(paste0(PATH,"/results/Figure7_",UTYPE,".eps"))
-
+# setEPS()
+# postscript(paste0(PATH,"/results/Figure7_",UTYPE,".eps"))
+png(paste0(PATH,"/results/Figure7_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$overdose,
 printe$overdose,
@@ -329,6 +333,7 @@ boin$overdose,
 tepi$overdose,
 efft$overdose,
 boin12$overdose,
+modified_boin12$overdose,
 stein$overdose,
 ji3$overdose)
 
@@ -359,9 +364,12 @@ points(stein$ncohort*3,stein$overdose,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$overdose,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$overdose,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
+lines(modified_boin12$ncohort*3,modified_boin12$overdose,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$overdose,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
-legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,8),pch=ltys,bty="n",ncol=4)
+
+legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,9),pch=ltys,bty="n",ncol=4)
 
 
 dev.off()
@@ -370,8 +378,10 @@ dev.off()
 
 
 ## Figure 8
-setEPS()
-postscript(paste0(PATH,"/results/Figure8_",UTYPE,".eps"))
+# setEPS()
+# postscript(paste0(PATH,"/results/Figure8_",UTYPE,".eps"))
+png(paste0(PATH,"/results/Figure8_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+
 
 xx = c(utpi$ov.sel,
 printe$ov.sel,
@@ -379,6 +389,7 @@ boin$ov.sel,
 tepi$ov.sel,
 efft$ov.sel,
 boin12$ov.sel,
+modified_boin12$ov.sel,
 stein$ov.sel,
 ji3$ov.sel)
 
@@ -407,9 +418,12 @@ points(stein$ncohort*3,stein$ov.sel,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$ov.sel,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$ov.sel,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
+lines(modified_boin12$ncohort*3,modified_boin12$ov.sel,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$ov.sel,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
-legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,8),pch=ltys,bty="n",ncol=4)
+
+legend("topleft", legend=dname, col=cs, lty = liness, cex=1,lwd=rep(1.5,9),pch=ltys,bty="n",ncol=4)
 
 
 dev.off()

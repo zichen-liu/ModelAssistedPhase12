@@ -16,15 +16,15 @@ utpix = utpix / NDOSE
 return(cbind(utpix,utpi$design))
 }
 
-utpi= extractavg("\\utpi_random.csv")
-boin=extractavg("\\BOINET_random.csv")
-efft=temp("\\efftox_random.csv")
-tepi=extractavg("\\tepi_random.csv")
-boin12 = extractavg("\\boin12_random.csv")
-modified_boin12 = extractavg("\\modified_boin12_random.csv")
-ji3 = extractavg("\\ji3_random.csv")
-printe = extractavg("\\printe_random.csv")
-stein = extractavg("\\stein_random.csv")
+utpi= extractavg("/utpi_random.csv")
+boin=extractavg("/BOINET_random.csv")
+efft=extractavg("/efftox_random.csv")
+tepi=extractavg("/tepi_random.csv")
+boin12 = extractavg("/boin12_random.csv")
+modified_boin12 = extractavg("/modified_boin12_random.csv")
+ji3 = extractavg("/ji3_random.csv")
+printe = extractavg("/printe_random.csv")
+stein = extractavg("/stein_random.csv")
 
 tblall = NULL
 tblall = rbind(tblall, utpi)

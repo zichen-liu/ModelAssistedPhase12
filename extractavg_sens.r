@@ -26,11 +26,11 @@ ERANGE = c(0.1,0.2,0.3,0.4)
 TRANGE = c(0.2,0.3,0.4)
 
 
-setwd(paste0(PATH,'intermediate/sensitivity/'))
+setwd(paste0(PATH,'/intermediate/sensitivity/'))
 for (ee in ERANGE){
 for (tt in TRANGE){
 	
-	setwd(paste0(PATH,'intermediate/sensitivity/'))
+	setwd(paste0(PATH,'/intermediate/sensitivity/'))
 	
 	setwd(paste0(ee,'_',tt,'/'))
 	
@@ -39,19 +39,21 @@ for (tt in TRANGE){
 		
 		
 
-	utpi= extractavg("\\utpi_random.csv")
-	boin=extractavg("\\BOINET_random.csv")
-	tepi=extractavg("\\tepi_random.csv")
-	boin12 = extractavg("\\boin12_random.csv")
-	ji3 = extractavg("\\ji3_random.csv")
-	printe = extractavg("\\printe_random.csv")
-	stein = extractavg("\\stein_random.csv")
+	utpi= extractavg("/utpi_random.csv")
+	boin=extractavg("/BOINET_random.csv")
+	tepi=extractavg("/tepi_random.csv")
+	boin12 = extractavg("/boin12_random.csv")
+	modified_boin12 = extractavg("/modified_boin12_random.csv")
+	ji3 = extractavg("/ji3_random.csv")
+	printe = extractavg("/printe_random.csv")
+	stein = extractavg("/stein_random.csv")
 
 	tblall = NULL
 	tblall = rbind(tblall, utpi)
 	tblall = rbind(tblall, boin)
 	tblall = rbind(tblall, tepi)
 	tblall = rbind(tblall, boin12)
+	tblall = rbind(tblall, modified_boin12)
 	tblall = rbind(tblall, ji3)
 	tblall = rbind(tblall, printe)
 	tblall = rbind(tblall, stein)
@@ -76,7 +78,7 @@ tblsens = NULL
 for (ee in ERANGE){
 for (tt in TRANGE){
 	
-	setwd(paste0(PATH,'intermediate/sensitivity/'))
+	setwd(paste0(PATH,'/intermediate/sensitivity/'))
 	
 	setwd(paste0(ee,'_',tt,'/'))
 	
@@ -88,5 +90,5 @@ for (tt in TRANGE){
 }
 }
 
-setwd(paste0(PATH,'intermediate/sensitivity/'))
+setwd(paste0(PATH,'/intermediate/sensitivity/'))
 fwrite(tblsens,'simres_sensitivity.csv')

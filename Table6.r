@@ -4,7 +4,7 @@ library(tidyverse)
 
 
 
-tbl = fread(paste0(PATH,'\\intermediate\\sensitivity\\simres_sensitivity.csv'))
+tbl = fread(paste0(PATH,'/intermediate/sensitivity/simres_sensitivity.csv'))
 
 tbl$Design = tbl$V2
 tbl$Design <- ifelse(tbl$Design == "utpi", "uTPI", tbl$Design)
@@ -14,6 +14,7 @@ tbl$Design <- ifelse(tbl$Design == "stein", "STEIN", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "printe", "PRINTE", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "tepi", "TEPI", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "boin12", "BOIN12", tbl$Design)
+tbl$Design <- ifelse(tbl$Design == "modified_boin12", "M-BOIN12", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "efftox", "EffTox", tbl$Design)
 		   
 
@@ -27,7 +28,7 @@ p6 = tbl %>% filter(rtype ==1 & utype ==1 & ncohort == 18 & toxtarget == 0.4 & e
 tableformat<-function(p1,toxtarget,efftarget){
 
 p1=as.data.table(p1)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12")
+preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "M-BOIN12")
 p1 = p1[preferred.order, on="Design"]
 p1 = p1 %>% arrange(ncohort)
 

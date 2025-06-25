@@ -3,7 +3,7 @@ library(data.table)
 library(tidyverse)
 
 
-tbl = fread(paste0(PATH,'\\intermediate\\NDOSE3\\simres.csv'))
+tbl = fread(paste0(PATH,'/intermediate/NDOSE3/simres.csv'))
 
 tbl$Design = tbl$V2
 tbl$Design <- ifelse(tbl$Design == "utpi", "uTPI", tbl$Design)
@@ -13,12 +13,13 @@ tbl$Design <- ifelse(tbl$Design == "stein", "STEIN", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "printe", "PRINTE", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "tepi", "TEPI", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "boin12", "BOIN12", tbl$Design)
+tbl$Design <- ifelse(tbl$Design == "modified_boin12", "M-BOIN12", tbl$Design)
 
 		   
 
 p1 = tbl %>% filter(rtype ==1 & utype ==1)
 p1=as.data.table(p1)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12")
+preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "M-BOIN12")
 p1 = p1[preferred.order, on="Design"]
 p1 = p1 %>% arrange(ncohort)
 
@@ -53,7 +54,7 @@ p1 = p1 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor P
 p2 = tbl %>% filter(rtype ==1 & utype ==2)
 
 p2=as.data.table(p2)
-preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12")
+preferred.order = c("uTPI","BOIN-ET","Joint3+3","STEIN","PRINTE", "TEPI","BOIN12", "M-BOIN12")
 p2 = p2[preferred.order, on="Design"]
 p2 = p2 %>% arrange(ncohort)
 

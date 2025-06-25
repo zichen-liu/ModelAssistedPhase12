@@ -6,65 +6,65 @@ PATH = getwd()
 
 # Run Number of dose = 5, Starting dose = 1
 NDOSE <<- 5
-dir.create(paste0(PATH,'/intermediate/NDOSE5/'), showWarnings = FALSE)
+# dir.create(paste0(PATH,'/intermediate/NDOSE5/'), showWarnings = FALSE)
 setwd(paste0(PATH,'/intermediate/NDOSE5/'))
 
-for(i in 1:NDOSE){
-dir.create(paste0(i,'/'), showWarnings = FALSE)
-}
+# for(i in 1:NDOSE){
+# dir.create(paste0(i,'/'), showWarnings = FALSE)
+# }
 
 STARTD <<- 1
 TARGET.E <<- 0.2 
 TARGET.T <<- 0.3 
 SSIZERANGE <<- seq(8,30,by=2)
-source(paste0(PATH,'/boin12.R'))
+# source(paste0(PATH,'/boin12.R'))
 source(paste0(PATH,'/modified_boin12.R'))
-source(paste0(PATH,'/BOINET.R'))
-source(paste0(PATH,'/Ji3.R'))
-source(paste0(PATH,'/PITE.R'))
-source(paste0(PATH,'/STEIN.R'))
-source(paste0(PATH,'/TEPI.R'))
-source(paste0(PATH,'/uTPI.R'))
-source(paste0(PATH,'/efftox.r'))
-setwd(paste0(PATH,'/NDOSE5/'))
+# source(paste0(PATH,'/BOINET.R'))
+# source(paste0(PATH,'/Ji3.R'))
+# source(paste0(PATH,'/PITE.R'))
+# source(paste0(PATH,'/STEIN.R'))
+# source(paste0(PATH,'/TEPI.R'))
+# source(paste0(PATH,'/uTPI.R'))
+# source(paste0(PATH,'/efftox.r'))
+# setwd(paste0(PATH,'/NDOSE5/'))
 source(paste0(PATH,'/extractavg2.r'))
 
 
 
 # Run Number of dose = 5, Starting dose = 2
 NDOSE <<- 5
-dir.create(paste0(PATH,'/intermediate/NDOSE5_START2/'), showWarnings = FALSE)
+# dir.create(paste0(PATH,'/intermediate/NDOSE5_START2/'), showWarnings = FALSE)
 setwd(paste0(PATH,'/intermediate/NDOSE5_START2/'))
 
-for(i in 1:NDOSE){
-dir.create(paste0(i,'/'), showWarnings = FALSE)
-}
+# for(i in 1:NDOSE){
+# dir.create(paste0(i,'/'), showWarnings = FALSE)
+# }
 
 STARTD <<- 2
 TARGET.E <<- 0.2 
 TARGET.T <<- 0.3 
 SSIZERANGE <<- seq(8,30,by=2)
-source(paste0(PATH,'/boin12.R'))
+# source(paste0(PATH,'/boin12.R'))
 source(paste0(PATH,'/modified_boin12.R'))
-source(paste0(PATH,'/BOINET.R'))
-source(paste0(PATH,'/Ji3.R'))
-source(paste0(PATH,'/PITE.R'))
-source(paste0(PATH,'/STEIN.R'))
-source(paste0(PATH,'/TEPI.R'))
-source(paste0(PATH,'/uTPI.R'))
-source(paste0(PATH,'/efftox.r'))
-setwd(paste0(PATH,'/NDOSE5_START2/'))
+# source(paste0(PATH,'/BOINET.R'))
+# source(paste0(PATH,'/Ji3.R'))
+# source(paste0(PATH,'/PITE.R'))
+# source(paste0(PATH,'/STEIN.R'))
+# source(paste0(PATH,'/TEPI.R'))
+# source(paste0(PATH,'/uTPI.R'))
+# source(paste0(PATH,'/efftox.r'))
+# setwd(paste0(PATH,'/NDOSE5_START2/'))
 source(paste0(PATH,'/extractavg2.r'))
 
 
 # Run Number of dose = 3, Starting dose = 1
 NDOSE <<- 3
-dir.create(paste0(PATH,'/intermediate/NDOSE3/'), showWarnings = FALSE)
+# dir.create(paste0(PATH,'/intermediate/NDOSE3/'), showWarnings = FALSE)
 setwd(paste0(PATH,'/intermediate/NDOSE3/'))
 
-for(i in 1:NDOSE){
-dir.create(paste0(i,'/'), showWarnings = FALSE)
-}
+# for(i in 1:NDOSE){
+# dir.create(paste0(i,'/'), showWarnings = FALSE)
+# }
 
 STARTD <<- 1
 TARGET.E <<- 0.2 
@@ -78,7 +78,7 @@ source(paste0(PATH,'/PITE.R'))
 source(paste0(PATH,'/STEIN.R'))
 source(paste0(PATH,'/TEPI.R'))
 source(paste0(PATH,'/uTPI.R'))
-setwd(paste0(PATH,'/NDOSE3/'))
+# setwd(paste0(PATH,'/NDOSE3/'))
 source(paste0(PATH,'/extractavg.r'))
 
 
@@ -88,27 +88,27 @@ source(paste0(PATH,'/extractavg.r'))
 
 # Run Number of dose = 10, Starting dose = 1
 NDOSE <<- 10
-dir.create(paste0(PATH,'/intermediate/NDOSE10/'), showWarnings = FALSE)
+# dir.create(paste0(PATH,'/intermediate/NDOSE10/'), showWarnings = FALSE)
 setwd(paste0(PATH,'/intermediate/NDOSE10/'))
 
-for(i in 1:NDOSE){
-dir.create(paste0(i,'/'), showWarnings = FALSE)
-}
+# for(i in 1:NDOSE){
+# dir.create(paste0(i,'/'), showWarnings = FALSE)
+# }
 
 STARTD <<- 1
 TARGET.E <<- 0.2 
 TARGET.T <<- 0.3 
 SSIZERANGE <<- c(18,36)
 
-source(paste0(PATH,'/boin12.R'))
+# source(paste0(PATH,'/boin12.R'))
 source(paste0(PATH,'/modified_boin12.R'))
-source(paste0(PATH,'/BOINET.R'))
-source(paste0(PATH,'/Ji3.R'))
-source(paste0(PATH,'/PITE.R'))
-source(paste0(PATH,'/STEIN.R'))
-source(paste0(PATH,'/TEPI.R'))
-source(paste0(PATH,'/uTPI.R'))
-setwd(paste0(PATH,'/NDOSE10/'))
+# source(paste0(PATH,'/BOINET.R'))
+# source(paste0(PATH,'/Ji3.R'))
+# source(paste0(PATH,'/PITE.R'))
+# source(paste0(PATH,'/STEIN.R'))
+# source(paste0(PATH,'/TEPI.R'))
+# source(paste0(PATH,'/uTPI.R'))
+# setwd(paste0(PATH,'/NDOSE10/'))
 source(paste0(PATH,'/extractavg.r'))
 
 
@@ -124,7 +124,7 @@ ERANGE = c(0.1,0.2,0.3,0.4)
 
 TRANGE = c(0.2,0.3,0.4)
 
-dir.create(paste0(PATH,'/intermediate/sensitivity/'), showWarnings = FALSE)
+# dir.create(paste0(PATH,'/intermediate/sensitivity/'), showWarnings = FALSE)
 setwd(paste0(PATH,'/intermediate/sensitivity/'))
 for (ee in ERANGE){
 for (tt in TRANGE){
@@ -138,14 +138,14 @@ for (tt in TRANGE){
 
 	TARGET.E <<- ee
 	TARGET.T <<- tt 
-	source(paste0(PATH,'/boin12.R'))
+	# source(paste0(PATH,'/boin12.R'))
 	source(paste0(PATH,'/modified_boin12.R'))
-	source(paste0(PATH,'/BOINET.R'))
-	source(paste0(PATH,'/Ji3.R'))
-	source(paste0(PATH,'/PITE.R'))
-	source(paste0(PATH,'/STEIN.R'))
-	source(paste0(PATH,'/TEPI.R'))
-	source(paste0(PATH,'/uTPI.R'))
+	# source(paste0(PATH,'/BOINET.R'))
+	# source(paste0(PATH,'/Ji3.R'))
+	# source(paste0(PATH,'/PITE.R'))
+	# source(paste0(PATH,'/STEIN.R'))
+	# source(paste0(PATH,'/TEPI.R'))
+	# source(paste0(PATH,'/uTPI.R'))
 }
 }
 
