@@ -356,8 +356,8 @@ points(stein$ncohort*3,stein$overdose,type="p",pch=ltys[7],col=cs[7],lwd=1.5)
 lines(efft$ncohort*3,efft$overdose,type="l",pch=ltys[8],col=cs[8],lwd=1.5,lty=liness[8])
 points(efft$ncohort*3,efft$overdose,type="p",pch=ltys[8],col=cs[8],lwd=1.5)
 
-lines(efft$ncohort*3,efft$overdose,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
-points(efft$ncohort*3,efft$overdose,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
+lines(modified_boin12$ncohort*3,modified_boin12$overdose,type="l",pch=ltys[9],col=cs[9],lwd=1.5,lty=liness[9])
+points(modified_boin12$ncohort*3,modified_boin12$overdose,type="p",pch=ltys[9],col=cs[9],lwd=1.5)
 
 
 
