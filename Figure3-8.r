@@ -1,5 +1,6 @@
 library(data.table)
 
+ub.setting <- UB
 
 setwd(paste0(PATH,'/intermediate/NDOSE5/'))
 
@@ -28,7 +29,7 @@ boin=getvalue("/BOINET_random.csv")
 efft=getvalue("/efftox_random.csv")
 tepi=getvalue("/tepi_random.csv")
 boin12 = getvalue("/boin12_random.csv")
-modified_boin12 = getvalue("/modified_boin12_random.csv")
+modified_boin12 = getvalue(paste0("/modified", ub.setting, "_boin12_random.csv"))
 ji3 = getvalue("/ji3_random.csv")
 printe = getvalue("/printe_random.csv")
 stein = getvalue("/stein_random.csv")
@@ -103,7 +104,7 @@ dname=c("uTPI", "PRINTE","BOIN-ET","TEPI","Joint3+3","BOIN12","STEIN","EffTox", 
 
 # setEPS()
 # postscript(paste0(PATH,"/results/Figure3_",UTYPE,".eps"))
-png(paste0(PATH,"/results/Figure3_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+png(paste0(PATH,"/results/", ub.setting, "/Figure3_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$bd.sel,
 printe$bd.sel,
@@ -158,7 +159,7 @@ dev.off()
 ## Figure 4
 # setEPS()
 # postscript(paste0(PATH,"/results/Figure4_",UTYPE,".eps"))
-png(paste0(PATH,"/results/Figure4_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+png(paste0(PATH,"/results/", ub.setting, "/Figure4_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 
 xx = c(utpi$od.sel,
@@ -216,7 +217,7 @@ dev.off()
 ## Figure 5
 # setEPS()
 # postscript(paste0(PATH,"/results/Figure5_",UTYPE,".eps"))
-png(paste0(PATH,"/results/Figure5_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+png(paste0(PATH,"/results/", ub.setting, "/Figure5_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$bd.pts,
 printe$bd.pts,
@@ -270,7 +271,7 @@ dev.off()
 ## Figure 6
 # setEPS()
 # postscript(paste0(PATH,"/results/Figure6_",UTYPE,".eps"))
-png(paste0(PATH,"/results/Figure6_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+png(paste0(PATH,"/results/", ub.setting, "/Figure6_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$poorall,
 printe$poorall,
@@ -325,7 +326,7 @@ dev.off()
 ## Figure 7
 # setEPS()
 # postscript(paste0(PATH,"/results/Figure7_",UTYPE,".eps"))
-png(paste0(PATH,"/results/Figure7_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+png(paste0(PATH,"/results/", ub.setting, "/Figure7_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 xx = c(utpi$overdose,
 printe$overdose,
@@ -380,7 +381,7 @@ dev.off()
 ## Figure 8
 # setEPS()
 # postscript(paste0(PATH,"/results/Figure8_",UTYPE,".eps"))
-png(paste0(PATH,"/results/Figure8_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
+png(paste0(PATH,"/results/", ub.setting, "/Figure8_",UTYPE,".png"), width = 7, height = 7, units = "in", res = 300)
 
 
 xx = c(utpi$ov.sel,

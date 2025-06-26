@@ -9,7 +9,7 @@ PATH = getwd()
 # 1: ub = uu
 # 2: ub = uu + (100 - uu) / 4
 # 3: ub = 100 - (100 - uu) / 4
-UB <- 2
+UB <- 3
 
 # Run Number of dose = 5, Starting dose = 1
 NDOSE <<- 5

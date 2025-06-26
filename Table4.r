@@ -2,8 +2,9 @@
 library(data.table)
 library(tidyverse)
 
+ub.setting <- UB
 
-tbl = fread(paste0(PATH,'/intermediate/NDOSE3/simres.csv'))
+tbl = fread(paste0(PATH,'/intermediate/NDOSE3/simres', ub.setting, '.csv'))
 
 tbl$Design = tbl$V2
 tbl$Design <- ifelse(tbl$Design == "utpi", "uTPI", tbl$Design)
@@ -13,7 +14,7 @@ tbl$Design <- ifelse(tbl$Design == "stein", "STEIN", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "printe", "PRINTE", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "tepi", "TEPI", tbl$Design)
 tbl$Design <- ifelse(tbl$Design == "boin12", "BOIN12", tbl$Design)
-tbl$Design <- ifelse(tbl$Design == "modified_boin12", "M-BOIN12", tbl$Design)
+tbl$Design <- ifelse(tbl$Design == paste0("modified", ub.setting, "_boin12"), "M-BOIN12", tbl$Design)
 
 		   
 
@@ -84,4 +85,4 @@ p2 = p2 %>% rename("OBD Sel%" = "bd.sel","FD Sel%"="od.sel",	"OBD Pts%"="bd.pts"
 p2 = p2 %>% select('Sample Size',Design, "OBD Sel%","FD Sel%","OBD Pts%","Poor Pts%","OV Pts%","OV Sel%",CompRank)
 
 
-fwrite((rbind(p2,p1)),paste0("results/Table4.csv"))
+fwrite((rbind(p2,p1)),paste0("results/", ub.setting, "/Table4.csv"))
