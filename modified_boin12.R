@@ -2,7 +2,7 @@
 ## ----------------------------------------------------------------------------
 ## Title: modified_boin12.R
 ## ----------------------------------------------------------------------------
-## Authors: Haolun Shi, Ruitao Lin, Xiaolei Lin
+## Authors: Haolun Shi, Ruitao Lin, Xiaolei Lin, Zichen Liu
 ## ----------------------------------------------------------------------------
 ## Description: Function to generate operating characteristics of BOIN12 
 ## ----------------------------------------------------------------------------
@@ -36,6 +36,13 @@
 ##        ov.sel: overdose selection percentage
 ##
 ## ----------------------------------------------------------------------------
+
+# Select which modified benchmark utility to use instead of
+# the standard BOIN12 ub = uu + (100 - uu) / 2
+# 1: ub = uu
+# 2: ub = uu + (100 - uu) / 4
+# 3: ub = 100 - (100 - uu) / 4
+ub.setting <- UB
 
 library(Iso)
 ndose <<- NDOSE
@@ -317,8 +324,14 @@ n.earlystop=ncohort*cohortsize
   # Assume independence between toxicity and efficacy
   targetP<-c(targetE*targetT,targetT*(1-targetE),(1-targetT)*targetE,(1-targetT)*(1-targetE))
 
-  # Calculate the benchmark utility
-  uu = sum(targetP*utility) # highest unacceptable utility is also the benchmark utility (i.e., desirable utility)
+  # Calculate the benchmark utility (i.e., desirable utility)
+  uu = sum(targetP*utility) # highest unacceptable utility is also the benchmark utility 
+  
+  if (ub.setting == 2) {
+    uu = uu + (100 - uu) / 4 
+  } else if (ub.setting == 3) {
+    uu = 100 - (100 - uu) / 4 
+  }
 
   # Calculate true utility
   #from marginal prob to joint prob
@@ -523,10 +536,11 @@ outputmat=rbind(outputmat,c(i,utype,rtype,c(oc$bd.sel,oc$od.sel,oc$bd.pts,oc$od.
 cname = c("ncohort","utype","rtype","bd.sel","od.sel","bd.pts","od.pts","earlystop","overdose","poorall","ov.sel")
 colnames(outputmat)=cname
 cname = c(cname,"design")
-outputmat = cbind(outputmat,rep("modified_boin12",nrow(outputmat)))
+modname = paste0("modified", ub.setting, "_boin12")
+outputmat = cbind(outputmat,rep(modname, nrow(outputmat)))
 colnames(outputmat)=cname
 
 
-write.csv(outputmat,paste0(iii,"/modified_boin12_random.csv"),row.names=FALSE)
+write.csv(outputmat,paste0(iii,"/modified", ub.setting, "_boin12_random.csv"),row.names=FALSE)
 
 }

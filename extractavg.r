@@ -1,7 +1,6 @@
-
 library(data.table)
 
-
+ub.setting <- UB
 
 extractavg<-function(path){
 for(i in 1:NDOSE){
@@ -21,7 +20,7 @@ utpi= extractavg("/utpi_random.csv")
 boin=extractavg("/BOINET_random.csv")
 tepi=extractavg("/tepi_random.csv")
 boin12 = extractavg("/boin12_random.csv")
-modified_boin12 = extractavg("/modified_boin12_random.csv")
+modified_boin12 = extractavg(paste0("/modified", ub.setting, "_boin12_random.csv"))
 ji3 = extractavg("/ji3_random.csv")
 printe = extractavg("/printe_random.csv")
 stein = extractavg("/stein_random.csv")
@@ -39,5 +38,5 @@ tblall = rbind(tblall, stein)
 
 tblall=as.data.frame(tblall)
 tblall = tblall[which(tblall$ncohort %in% SSIZERANGE),]
-fwrite(tblall,"simres.csv")
+fwrite(tblall, paste0("simres", ub.setting, ".csv"))
 

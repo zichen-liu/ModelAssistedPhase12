@@ -3,6 +3,13 @@
 
 PATH = getwd()
 
+# Benchmark utility setting for modified BOIN12
+# Select which modified benchmark utility to use instead of
+# the standard BOIN12 ub = uu + (100 - uu) / 2
+# 1: ub = uu
+# 2: ub = uu + (100 - uu) / 4
+# 3: ub = 100 - (100 - uu) / 4
+UB <- 2
 
 # Run Number of dose = 5, Starting dose = 1
 NDOSE <<- 5
@@ -70,14 +77,14 @@ STARTD <<- 1
 TARGET.E <<- 0.2 
 TARGET.T <<- 0.3 
 SSIZERANGE <<- c(6,12)
-source(paste0(PATH,'/boin12.R'))
+# source(paste0(PATH,'/boin12.R'))
 source(paste0(PATH,'/modified_boin12.R'))
-source(paste0(PATH,'/BOINET.R'))
-source(paste0(PATH,'/Ji3.R'))
-source(paste0(PATH,'/PITE.R'))
-source(paste0(PATH,'/STEIN.R'))
-source(paste0(PATH,'/TEPI.R'))
-source(paste0(PATH,'/uTPI.R'))
+# source(paste0(PATH,'/BOINET.R'))
+# source(paste0(PATH,'/Ji3.R'))
+# source(paste0(PATH,'/PITE.R'))
+# source(paste0(PATH,'/STEIN.R'))
+# source(paste0(PATH,'/TEPI.R'))
+# source(paste0(PATH,'/uTPI.R'))
 # setwd(paste0(PATH,'/NDOSE3/'))
 source(paste0(PATH,'/extractavg.r'))
 
